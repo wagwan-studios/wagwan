@@ -1,11 +1,15 @@
 "use client"
 
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Image from "next/image";
 import Menu from "@/components/widgets/top-bar/menu";
 import MainMenu from "@/components/widgets/top-bar/main-menu";
 function TopBar() {
     const [isOpen,setIsOpen] = useState(false)
+
+    useEffect(()=>{
+        isOpen ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto"
+    },[isOpen])
     return(
         <>
             <section className="w-full absolute z-50 px-mobile-container pt-[15px] flex justify-between items-center md:pt-10 md:px-container ">
