@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        @apply box-border m-0 p-0 scroll-smooth;
+        @apply bg-black box-border m-0 p-0 scroll-smooth;
     }
     ul {
         @apply p-0;
