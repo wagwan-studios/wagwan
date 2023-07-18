@@ -13,12 +13,12 @@ module.exports = {
       colors:{
         "primary-color":"#fff",
         "secondary-color":"#E6F86F",
-        'tertiary-color':'#06EFF9',
+        'tertiary-color':'#877FBE',
       },
       backgroundColor:{
         "primary-color":"#fff",
         "secondary-color":"#E6F86F",
-        'tertiary-color':'#06EFF9',
+        'tertiary-color':'#877FBE',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -39,9 +39,30 @@ module.exports = {
           fontStyle: 'normal',
           fontWeight: 700,
           lineHeight: '54.4px',
-          '@media (min-width: 767px)': {
+          '@media (min-width: 768px)': {
             fontSize: "124px",
             lineHeight:'118.4px',
+          }
+        },
+        ".heading-h4": {
+          fontSize: '24px',
+          fontStyle: 'normal',
+          fontWeight: 700,
+          lineHeight: '35px',
+          letterSpacing:'1.613px',
+          '@media (min-width: 768px)': {
+            fontSize: "54px",
+            lineHeight:"65px"
+          }
+        },
+        ".heading-h5": {
+          fontSize: '19px',
+          fontStyle: 'normal',
+          fontWeight: 700,
+          lineHeight: '22px',
+          '@media (min-width: 768px)': {
+            fontSize: "24px",
+            lineHeight:"44px"
           }
         },
         ".heading-h6": {
@@ -49,7 +70,7 @@ module.exports = {
           fontStyle: 'normal',
           fontWeight: 700,
           lineHeight: '22px',
-          '@media (min-width: 767px)': {
+          '@media (min-width: 768px)': {
             fontSize: "24px",
             lineHeight:"35px"
           }
@@ -78,7 +99,7 @@ module.exports = {
               color: 'white',
             }
           },
-          '@media (min-width: 767px)': {
+          '@media (min-width: 768px)': {
             fontSize: "18px",
             padding:"20px",
           }

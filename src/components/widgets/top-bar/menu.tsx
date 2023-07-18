@@ -13,7 +13,7 @@ function Menu({isOpen,setIsOpen}:Props) {
     return(
         <div>
             {!isOpen && <HiOutlineMenuAlt3 className="text-primary-color text-2xl cursor-pointer md:text-4xl" onClick={handleMenuInteraction}/>}
-            {isOpen && <AiOutlineClose className="text-primary-color text-2xl cursor-pointer md:text-4xl" onClick={handleMenuInteraction}/>}
+            {isOpen && <AiOutlineClose className="text-2xl cursor-pointer md:text-4xl" onClick={handleMenuInteraction}/>}
         </div>
     )
 }

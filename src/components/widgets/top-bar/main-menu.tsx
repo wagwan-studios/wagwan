@@ -1,15 +1,40 @@
 import Link from "next/link";
+import React from "react";
 
 
-const menu = ["ABOUT","WORK","CULTURE","LATEST","CONTACT"]
-function MainMenu() {
+interface Props {
+    setIsOpen : React.Dispatch<React.SetStateAction<boolean>>
+}
+const menu = [
+    {
+        title:"ABOUT",
+        link:"/about",
+    },
+    {
+        title:"WORK",
+        link:"/work",
+    },
+    {
+        title:"CULTURE",
+        link:"/culture",
+    },
+    {
+        title:"LATEST",
+        link:"/latest",
+    },
+    {
+        title:"CONTACT",
+        link:"/contact",
+    },
+]
+function MainMenu({setIsOpen} : Props) {
     return(
         <section className='bg-tertiary-color w-full h-screen absolute z-10 flex items-center justify-center'>
             <ul className="text-center">
                 {menu.map(el => (
-                    <li key={el}>
-                        <Link href={"/"} className="heading-h1 font-light">
-                            {el}
+                    <li key={el.title}>
+                        <Link href={el.link} className="heading-h1 font-light" onClick={() => setIsOpen(false)}>
+                            {el.title}
                         </Link>
                     </li>
                     ))}
