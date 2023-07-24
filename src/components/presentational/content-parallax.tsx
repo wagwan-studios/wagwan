@@ -1,57 +1,57 @@
 "use client"
 
-import {IParallax, Parallax, ParallaxLayer} from "@react-spring/parallax";
+import {IParallax} from "@react-spring/parallax";
 import Image from "next/image";
 import React, {useEffect, useRef, useState} from "react";
-import {
-    useScroll,
-    motion,
-    useTransform,
-    useSpring, MotionValue
-} from "framer-motion";
+// import {
+//     useScroll,
+//     motion,
+//     useTransform,
+//     useSpring, MotionValue
+// } from "framer-motion";
 import "./styles.css"
 import {useInView} from "react-intersection-observer";
 
-function useParallax(value: MotionValue<number>, distance: number) {
-    return useTransform(value, [0, 1], [-distance, distance]);
-}
-function CustomImage({ id }: { id: number }) {
-    const ref = useRef(null);
-    const { scrollYProgress } = useScroll({ target: ref });
-    const y = useParallax(scrollYProgress, 300);
-
-    return (
-        <section className='section'>
-            <div ref={ref} className='min-h-[500px] min-w-full relative'>
-                <Image
-                    src={"/content-images/image-1.png"}
-                    alt={'content image'}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    objectFit='contain'
-                    quality={100}
-                    className='img cursor-pointer transition-all duration-700	 hover:scale-110'
-                />
-            </div>
-        </section>
-    );
-}
+// function useParallax(value: MotionValue<number>, distance: number) {
+//     return useTransform(value, [0, 1], [-distance, distance]);
+// }
+// function CustomImage({ id }: { id: number }) {
+//     const ref = useRef(null);
+//     const { scrollYProgress } = useScroll({ target: ref });
+//     const y = useParallax(scrollYProgress, 300);
+//
+//     return (
+//         <section className='section'>
+//             <div ref={ref} className='min-h-[500px] min-w-full relative'>
+//                 <Image
+//                     src={"/content-images/image-1.png"}
+//                     alt={'content image'}
+//                     fill
+//                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+//                     objectFit='contain'
+//                     quality={100}
+//                     className='img cursor-pointer transition-all duration-700	 hover:scale-110'
+//                 />
+//             </div>
+//         </section>
+//     );
+// }
 
 function ContentParallax() {
-    const alignCenter = { display: 'flex', alignItems: 'center' }
+    // const alignCenter = { display: 'flex', alignItems: 'center' }
     const parallaxRef = useRef<IParallax>();
     // const { scrollYProgress } = useScroll();
     // const y1 = useTransform(scrollYProgress, [0, 500], [0, 0]);
     // const y2 = useTransform(scrollYProgress, [0, 500], [0, 0]);
-    const { scrollYProgress } = useScroll();
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001
-    });
-    const { ref, inView } = useInView();
+    // const { scrollYProgress } = useScroll();
+    // const scaleX = useSpring(scrollYProgress, {
+    //     stiffness: 100,
+    //     damping: 30,
+    //     restDelta: 0.001
+    // });
+    const { ref } = useInView();
     const [triggerHeading,setTriggerHeader] = useState(false)
-    const [isFade,setIsFade] = useState(false)
+    // const [isFade,setIsFade] = useState(false)
     // const scrollListener = () => {
     //     const handleWheelEvent = () => {
     //         if (ref.current){
