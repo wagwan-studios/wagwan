@@ -1,9 +1,13 @@
+
 import Hero from "@/components/presentational/hero";
+import ContentSection from "@/components/presentational/content-section";
 
 export default function Home() {
-  return (
+
+    return (
     <main>
-      <Hero/>
+        <Hero/>
+        <ContentSection/>
     </main>
   )
 }

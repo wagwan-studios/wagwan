@@ -29,3 +29,14 @@ input[type=number] {
 .control-prev::before{
     border-right-color: black !important;
 }
+
+.parallax-remove-scrollbar::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+.css{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
