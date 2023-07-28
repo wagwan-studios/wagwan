@@ -75,7 +75,6 @@ const cardVariants: Variants = {
     }
 };
 
-const hue = (h: number) => `hsl(${h}, 100%, 50%)`;
 function LatestInfoList() {
     return(
         <section className='pt-[120px] pb-20 px-mobile-container lg:pt-[300px] lg:pb-[260px] lg:px-container'>
