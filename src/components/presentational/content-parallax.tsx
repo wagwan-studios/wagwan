@@ -189,7 +189,7 @@ function ContentParallax() {
                         {/*))}*/}
                         <div ref={ref} className='flex flex-col w-full gap-16 xl:gap-32'>
                             {[1,2,3,4,5].map(el => (
-                                <div className='min-h-[500px] min-w-full relative' key={el}>
+                                <div className='min-h-[500px] min-w-full relative overflow-hidden' key={el}>
                                     <Image
                                         src={"/content-images/image-1.png"}
                                         alt={'content image'}
@@ -197,7 +197,7 @@ function ContentParallax() {
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         objectFit='contain'
                                         quality={100}
-                                        className=''
+                                        className='cursor-pointer transition-all duration-700	 hover:scale-110'
                                     />
                                 </div>
                             ))}

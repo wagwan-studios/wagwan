@@ -75,6 +75,16 @@ module.exports = {
             lineHeight:"35px"
           }
         },
+        ".heading-p": {
+          fontSize: '15px',
+          fontStyle: 'normal',
+          fontWeight: 300,
+          lineHeight: '20px',
+          '@media (min-width: 768px)': {
+            fontSize: "32px",
+            lineHeight:"77px"
+          }
+        },
         '.primary-button':{
           width: '100%',
           padding: '15px',

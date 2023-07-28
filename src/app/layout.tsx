@@ -21,12 +21,10 @@ export default function RootLayout({
 }: Props) {
   return (
     <html lang="en">
-
       <body className={inter.className}>
-      <TopBar/>
-      {children}
-      <Footer/>
-
+            <TopBar/>
+            {children}
+            <Footer/>
       </body>
     </html>
   )
