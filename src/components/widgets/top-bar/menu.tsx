@@ -1,8 +1,6 @@
 "use client"
 
 import React from 'react'
-import {HiOutlineMenuAlt3} from 'react-icons/hi'
-import {AiOutlineClose} from 'react-icons/ai'
 import {Cycle,motion} from "framer-motion";
 
 interface Props {
@@ -19,7 +17,6 @@ const Path = (props:any) => (
     />
 );
 function Menu({isOpen,setIsOpen}:Props) {
-    const handleMenuInteraction = () => setIsOpen()
     return(
         <motion.div initial={false} animate={isOpen ? "open" : "closed"}>
             <button type="button" onClick={() => setIsOpen()}>
