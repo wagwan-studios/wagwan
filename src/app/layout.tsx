@@ -7,6 +7,7 @@ import Footer from "@/components/widgets/footer";
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export const metadata: Metadata = {
   title: 'Wagwan Studios',
   description: 'Welcome To Wagwan Studios',
@@ -21,7 +22,7 @@ export default function RootLayout({
 }: Props) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+    <body className={inter.className}>
             <TopBar/>
             {children}
             <Footer/>

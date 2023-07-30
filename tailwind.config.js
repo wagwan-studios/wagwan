@@ -44,6 +44,17 @@ module.exports = {
             lineHeight:'118.4px',
           }
         },
+        ".heading-h2": {
+          fontSize: '34px',
+          fontStyle: 'normal',
+          fontWeight: 700,
+          lineHeight: '42px',
+          letterSpacing:'1.613px',
+          '@media (min-width: 768px)': {
+            fontSize: "120px",
+            lineHeight:"110px"
+          }
+        },
         ".heading-h4": {
           fontSize: '24px',
           fontStyle: 'normal',
@@ -113,6 +124,9 @@ module.exports = {
             fontSize: "18px",
             padding:"20px",
           }
+        },
+        '.rtl-grid': {
+          direction: "rtl"
         }
       })
     }
