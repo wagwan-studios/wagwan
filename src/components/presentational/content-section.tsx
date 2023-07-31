@@ -1,10 +1,9 @@
 import {AiOutlineArrowDown} from 'react-icons/ai'
-import ContentParallax from "@/components/presentational/content-parallax";
 
 function ContentSection() {
     return(
        <>
-           <section className='lg:px-[200px] 2xl:px-[400px] px-mobile-container relative'>
+           <section className='lg:px-[150px] xl:px-[200px] 2xl:px-[400px] px-mobile-container relative'>
                <div className='flex justify-center flex-col items-center gap-2.5 pt-6 mb-32'>
                    <h4 className='heading-h5 !font-light text-white'>WHERE CHANGE HAPPENS</h4>
                    <AiOutlineArrowDown className='text-2xl text-white'/>
@@ -37,7 +36,6 @@ function ContentSection() {
                {/*    <h2 className='heading-h1 text-white !font-light text-center'>WE CALL THEM CHANGEMAKERS</h2>*/}
                {/*</div>*/}
            </section>
-           <ContentParallax/>
        </>
 
 )

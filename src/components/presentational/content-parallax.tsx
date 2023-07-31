@@ -178,9 +178,9 @@ function ContentParallax() {
         //     {/*</Parallax>*/}
         // </div>
         <>
-            <div id='contentParallaxWrapper'>
+            <section id='contentParallaxWrapper'>
                 <div className='relative min-h-screen' id='heading' >
-                    <h2  className={`heading-h1 !font-light text-white text-center ${triggerHeading ? 'fixed' : 'absolute'} transition-all duration-500 css`}>WE CALL THEM CHANGEMAKERS</h2>
+                    <h2  className={`heading-h1 w-full !font-light text-white text-center ${triggerHeading ? 'fixed' : 'absolute'} transition-all duration-500 css`}>WE CALL THEM CHANGE MAKERS</h2>
                 </div>
                 <div className='container-wrapper' id='contentContainer'>
                     <div>
@@ -205,7 +205,7 @@ function ContentParallax() {
                     </div>
                 </div>
                 <div className='h-screen'/>
-            </div>
+            </section>
         </>
 
     )

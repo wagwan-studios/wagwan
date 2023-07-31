@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import React from "react";
 import TopBar from "@/components/widgets/top-bar";
 import Footer from "@/components/widgets/footer";
+import "react-carousel-animated/dist/style.css";
 
 const inter = Inter({ subsets: ['latin'] })
 

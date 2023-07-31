@@ -2,7 +2,7 @@ import TransitionAnimation from "@/components/common/transition-animation";
 import AboutHero from "@/components/presentational/about/about-hero";
 import AboutUsContent from "@/components/presentational/about/about-us-content";
 import Image from "next/image";
-import ServiceSection from "@/components/presentational/service-section";
+import ServiceSection from "@/components/presentational/about/service-section";
 
 function About() {
     return <TransitionAnimation>

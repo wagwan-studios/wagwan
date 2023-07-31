@@ -1,5 +1,6 @@
 import React from "react";
 import AboutValues from "@/components/presentational/about/about-values";
+import AboutGallery from "@/components/presentational/about/about-gallery";
 
 const aboutUsValuesList = [
     {
@@ -41,8 +42,9 @@ function AboutUsContent() {
                 We will challenge you, we will change you, and you just
                 might change the world.
             </p>
+            <h6 className='heading-h5 !font-light text-white text-center pt-20 pb-16 md:pb-20'>Wagwan Studios is a place where</h6>
+            <AboutGallery/>
             <div className='pt-20 pb-24'>
-                <h6 className='heading-h5 !font-light text-white text-center pb-16 md:pb-20'>Wagwan Studios is a place where</h6>
                 <article className='flex flex-col items-center gap-32 md:gap-[300px]'>
                     {aboutUsValuesList.map((el,index) => (
                         <AboutValues key={index} description={el.description} title={el.title}/>

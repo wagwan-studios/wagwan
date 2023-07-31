@@ -1,7 +1,7 @@
 import TransitionAnimation from "@/components/common/transition-animation";
-import CultureHero from "@/components/presentational/culture-hero";
+import CultureHero from "@/components/presentational/culture/culture-hero";
 import Image from "next/image";
-import CultureContent from "@/components/presentational/culture-content";
+import CultureContent from "@/components/presentational/culture/culture-content";
 
 
 function Culture() {
