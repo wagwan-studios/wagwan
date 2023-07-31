@@ -1,5 +1,5 @@
 import React from "react";
-import AboutValues from "@/components/presentational/about-values";
+import AboutValues from "@/components/presentational/about/about-values";
 
 const aboutUsValuesList = [
     {
