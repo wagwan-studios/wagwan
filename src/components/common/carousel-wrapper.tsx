@@ -1,9 +1,14 @@
 "use client"
 
 // @ts-ignore
-import ReactCarousel, { AFTER, CENTER, BEFORE } from "react-carousel-animated";
+import { AFTER, CENTER, BEFORE } from "react-carousel-animated";
 import React from "react";
+import dynamic from "next/dynamic";
 
+// @ts-ignore
+const ReactCarousel : any = dynamic(() => import("react-carousel-animated"),{
+    ssr:false
+})
 interface Props {
     children:React.ReactNode
     height:string
