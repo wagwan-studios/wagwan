@@ -5,7 +5,19 @@ import React from "react";
 import TopBar from "@/components/widgets/top-bar";
 import Footer from "@/components/widgets/footer";
 import "react-carousel-animated/dist/style.css";
+import localFont from "next/font/local";
 
+
+const beatrice = localFont({
+  src: [
+    {
+      path:'../../public/fonts/beatrice/beatrice-regular.ttf' ,
+      weight:'400'
+    }
+  ],
+  display: 'swap',
+  variable: '--font-beatrice',
+})
 const inter = Inter({ subsets: ['latin'] })
 
 
@@ -23,7 +35,7 @@ export default function RootLayout({
 }: Props) {
   return (
     <html lang="en">
-    <body className={inter.className}>
+    <body className={`${beatrice.variable} ${inter.className}`}>
             <TopBar/>
             {children}
             <Footer/>

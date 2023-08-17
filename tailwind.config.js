@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily:{
+        beatrice: ['var(--font-beatrice)'],
+      },
       screens: {
         large__mobile:"450px",
       },

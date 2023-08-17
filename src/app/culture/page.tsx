@@ -3,7 +3,6 @@ import CultureHero from "@/components/presentational/culture/culture-hero";
 import Image from "next/image";
 import CultureContent from "@/components/presentational/culture/culture-content";
 
-
 function Culture() {
     return <TransitionAnimation>
         <CultureHero/>

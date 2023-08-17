@@ -2,7 +2,8 @@
 
 import {IParallax} from "@react-spring/parallax";
 import Image from "next/image";
-import React, {useEffect, useRef, useState} from "react";
+import React, {Fragment, useEffect, useRef, useState} from "react";
+import {motion, Variants} from "framer-motion";
 // import {
 //     useScroll,
 //     motion,
@@ -36,10 +37,27 @@ import {useInView} from "react-intersection-observer";
 //         </section>
 //     );
 // }
+const cardVariants: Variants = {
+    offscreen: {
+        backgroundColor: '#000'
+    },
+    onscreen: {
+        backgroundColor: 'white',
+        transition: {
+            type: "keyframes",
+            duration: 0.8
+        }
+    }
+};
 
 function ContentParallax() {
     // const alignCenter = { display: 'flex', alignItems: 'center' }
     const parallaxRef = useRef<IParallax>();
+    const [isHovering,setIsHovering] = useState(false)
+    const [hoverCords,setHoverCords] = useState({
+        top:0,
+        left:0
+    })
     // const { scrollYProgress } = useScroll();
     // const y1 = useTransform(scrollYProgress, [0, 500], [0, 0]);
     // const y2 = useTransform(scrollYProgress, [0, 500], [0, 0]);
@@ -49,7 +67,14 @@ function ContentParallax() {
     //     damping: 30,
     //     restDelta: 0.001
     // });
-    const { ref } = useInView();
+    const { ref,inView,entry } = useInView({
+        threshold:0.2
+    });
+    const [isInView,setIsInView] = useState(false)
+
+    useEffect(()=>{
+        setIsInView(inView)
+    },[inView])
     const [triggerHeading,setTriggerHeader] = useState(false)
     // const [isFade,setIsFade] = useState(false)
     // const scrollListener = () => {
@@ -87,12 +112,13 @@ function ContentParallax() {
         const contentParallaxWrapper = document.getElementById('contentParallaxWrapper')?.getBoundingClientRect()
         const onScroll = () => {
             if (imagesContainer && headingRef && contentContainer && contentParallaxWrapper){
-                if (window.scrollY >= contentContainer.top && window.scrollY < contentContainer.bottom){
-                    setTriggerHeader(true)
-                }
-                if (window.scrollY >= contentContainer.bottom || window.scrollY < contentContainer.top){
-                    setTriggerHeader(false)
-                }
+                // if (window.scrollY >= contentContainer.top && window.scrollY < contentContainer.bottom){
+                //     setTriggerHeader(true)
+                // }
+                // if (window.scrollY >= contentContainer.bottom || window.scrollY < contentContainer.top){
+                //     setTriggerHeader(false)
+                //
+                // }
             }
         }
         // clean up code
@@ -100,6 +126,15 @@ function ContentParallax() {
         window.addEventListener('scroll', onScroll, { passive: true });
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
+    function onMouseMove(e:  React.MouseEvent<HTMLDivElement, MouseEvent>) {
+        setHoverCords({
+            top:e.pageY,
+            left:e.pageX
+        })
+    }
+
+    console.log(inView,"inView")
+    console.log(entry,"entry")
     return(
         // className='parallax-remove-scrollbar'
         // <div className='min-h-screen bg-secondary-color'>
@@ -178,34 +213,53 @@ function ContentParallax() {
         //     {/*</Parallax>*/}
         // </div>
         <>
-            <section id='contentParallaxWrapper'>
-                <div className='relative min-h-screen' id='heading' >
-                    <h2  className={`heading-h1 w-full !font-light text-white text-center ${triggerHeading ? 'fixed' : 'absolute'} transition-all duration-500 css`}>WE CALL THEM CHANGE MAKERS</h2>
+            <section  ref={ref} id='contentParallaxWrapper'   className={`w-full h-full transition-all duration-500 pb-[600px] ${isInView ? 'bg-[#FFF2FF]' : 'bg-black'}`}>
+                {/*min-h-screen*/}
+                <div className='relative pb-[200px] lg:px-[150px] xl:px-[200px] 2xl:px-[400px] px-mobile-container' id='heading' >
+                    {/*${triggerHeading ? 'fixed' : 'absolute'}*/}
+                    <h2 className={`transition-all duration-500 ${isInView ? 'text-black' : 'text-white'} heading-h1 !font-light text-center  transition-all duration-500`}>WE CALL THEM CHANGE MAKERS</h2>
                 </div>
                 <div className='container-wrapper' id='contentContainer'>
                     <div>
                         {/*{[1, 2, 3, 4, 5].map((image) => (*/}
                         {/*    <CustomImage id={image} key={image} ref={ref}/>*/}
                         {/*))}*/}
-                        <div ref={ref} className='flex flex-col w-full gap-16 xl:gap-32'>
+                        <div className='flex flex-col w-full gap-16 xl:gap-32'>
                             {[1,2,3,4,5].map(el => (
-                                <div className='min-h-[500px] min-w-full relative overflow-hidden' key={el}>
-                                    <Image
-                                        src={"/content-images/image-1.png"}
-                                        alt={'content image'}
-                                        fill
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        objectFit='contain'
-                                        quality={100}
-                                        className='cursor-pointer transition-all duration-700	 hover:scale-110'
-                                    />
-                                </div>
+                                <Fragment key={el}>
+                                    <div className='min-h-[500px] min-w-full relative overflow-hidden'>
+                                        <Image
+                                            src={"/content-images/image-1.png"}
+                                            alt={'content image'}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            objectFit='contain'
+                                            quality={100}
+                                            className={`transition-all duration-700 hover:scale-110 !w-fit !left-1/2 -translate-x-1/2`}
+                                            onMouseMove={(e)=>onMouseMove(e)} onMouseEnter={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)}
+                                        />
+                                    </div>
+                                </Fragment>
                             ))}
                         </div>
                     </div>
                 </div>
-                <div className='h-screen'/>
             </section>
+            {/*<div className='h-screen'/>*/}
+            <span
+                className={`${isHovering ? 'opacity-100' : 'opacity-0'} arrow-cursor select-none hidden lg:block absolute text-center -translate-x-1/2 -translate-y-1/2`}
+                style={{
+                    top: `${hoverCords.top}px`,
+                    left: `${hoverCords.left}px`
+                }}>
+                                        <Image
+                                            src={`/arrows/arrow-1.png`}
+                                            alt={'arrow image'}
+                                            width={80}
+                                            height={40}
+                                            quality={100}
+                                        />
+                                    </span>
         </>
 
     )
