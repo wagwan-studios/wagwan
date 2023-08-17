@@ -3,7 +3,7 @@
 import {IParallax} from "@react-spring/parallax";
 import Image from "next/image";
 import React, {Fragment, useEffect, useRef, useState} from "react";
-import {motion, Variants} from "framer-motion";
+import {Variants} from "framer-motion";
 // import {
 //     useScroll,
 //     motion,
@@ -37,18 +37,6 @@ import {useInView} from "react-intersection-observer";
 //         </section>
 //     );
 // }
-const cardVariants: Variants = {
-    offscreen: {
-        backgroundColor: '#000'
-    },
-    onscreen: {
-        backgroundColor: 'white',
-        transition: {
-            type: "keyframes",
-            duration: 0.8
-        }
-    }
-};
 
 function ContentParallax() {
     // const alignCenter = { display: 'flex', alignItems: 'center' }
@@ -75,7 +63,7 @@ function ContentParallax() {
     useEffect(()=>{
         setIsInView(inView)
     },[inView])
-    const [triggerHeading,setTriggerHeader] = useState(false)
+    // const [triggerHeading,setTriggerHeader] = useState(false)
     // const [isFade,setIsFade] = useState(false)
     // const scrollListener = () => {
     //     const handleWheelEvent = () => {
