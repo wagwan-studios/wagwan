@@ -3,7 +3,6 @@
 import {IParallax} from "@react-spring/parallax";
 import Image from "next/image";
 import React, {Fragment, useEffect, useRef, useState} from "react";
-import {Variants} from "framer-motion";
 // import {
 //     useScroll,
 //     motion,
