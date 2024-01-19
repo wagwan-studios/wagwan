@@ -55,7 +55,7 @@ function ContentParallax() {
     //     damping: 30,
     //     restDelta: 0.001
     // });
-    const { ref,inView,entry } = useInView({
+    const { ref,inView } = useInView({
         threshold:0.2
     });
     const [isInView,setIsInView] = useState(false)
