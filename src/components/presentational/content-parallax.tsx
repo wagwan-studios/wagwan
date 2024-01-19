@@ -11,6 +11,7 @@ import React, {Fragment, useEffect, useRef, useState} from "react";
 // } from "framer-motion";
 import "./styles.css"
 import {useInView} from "react-intersection-observer";
+import Link from "next/link";
 
 // function useParallax(value: MotionValue<number>, distance: number) {
 //     return useTransform(value, [0, 1], [-distance, distance]);
@@ -30,7 +31,7 @@ import {useInView} from "react-intersection-observer";
 //                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 //                     objectFit='contain'
 //                     quality={100}
-//                     className='img cursor-pointer transition-all duration-700	 hover:scale-110'
+//                     className='transition-all duration-700 cursor-pointer img hover:scale-110'
 //                 />
 //             </div>
 //         </section>
@@ -120,8 +121,38 @@ function ContentParallax() {
         })
     }
 
-    console.log(inView,"inView")
-    console.log(entry,"entry")
+    const workList = [
+        {
+            name: "Spectral",
+            src: 'portfolio-1.png',
+            url: 'https://spectralstadiums.io/',
+            caption: 'Once upon a time, in the heart of Kasandey, stood the massive stadium, The Spectrum. Legends and heroes had shown their dominance and earned their glory there for many generations.'
+        },
+        {
+            name: "ITSUKI NFT",
+            src: 'portfolio-2.jpg',
+            url: 'https://itsukinft.com/',
+            caption: 'Itsuki is here to bridge the gap between Web3 and real world.'
+        },
+        {
+            name: "Fur You",
+            src: 'portfolio-5.jpg',
+            url: 'https://furyou.com/',
+            caption: 'Our entire line is created with the cleanest facial-grade, vegan, cruelty free, non-toxic ingredients that are dermatologically and gynecologically tested.'
+        },
+        {
+            name: "Pillz",
+            src: 'portfolio-4.jpg',
+            url: 'https://pillz.tech/',
+            caption: 'Start playing while you are waiting for your Pillz device.'
+        },
+        {
+            name: "Fabric",
+            src: 'portfolio-3.jpg',
+            url: 'https://fabric.vc/',
+            caption: 'We believe in the power of individual contribution: the fire at the heart of Web3.'
+        }
+    ];
     return(
         // className='parallax-remove-scrollbar'
         // <div className='min-h-screen bg-secondary-color'>
@@ -137,7 +168,7 @@ function ContentParallax() {
         //             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         //             objectFit='contain'
         //             quality={100}
-        //             className=' cursor-pointer transition-all duration-700	 hover:scale-110'
+        //             className='transition-all duration-700 cursor-pointer hover:scale-110'
         //         />
         //     </motion.div>
         //     <motion.div
@@ -152,7 +183,7 @@ function ContentParallax() {
         //             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         //             objectFit='contain'
         //             quality={100}
-        //             className=' cursor-pointer transition-all duration-700	 hover:scale-110'
+        //             className='transition-all duration-700 cursor-pointer hover:scale-110'
         //         />
         //     </motion.div>
         //     {/*@ts-ignore*/}
@@ -167,7 +198,7 @@ function ContentParallax() {
         //     {/*                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"*/}
         //     {/*                objectFit='contain'*/}
         //     {/*                quality={100}*/}
-        //     {/*                className=' cursor-pointer transition-all duration-700	 hover:scale-110'*/}
+        //     {/*                className='transition-all duration-700 cursor-pointer hover:scale-110'*/}
         //     {/*            />*/}
         //     {/*        </div>*/}
         //     {/*    </ParallaxLayer>*/}
@@ -180,7 +211,7 @@ function ContentParallax() {
         //     {/*                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"*/}
         //     {/*                objectFit='contain'*/}
         //     {/*                quality={100}*/}
-        //     {/*                className=' cursor-pointer transition-all duration-700	 hover:scale-110'*/}
+        //     {/*                className='transition-all duration-700 cursor-pointer hover:scale-110'*/}
         //     {/*            />*/}
         //     {/*        </div>*/}
         //     {/*    </ParallaxLayer>*/}
@@ -193,7 +224,7 @@ function ContentParallax() {
         //     {/*                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"*/}
         //     {/*                objectFit='contain'*/}
         //     {/*                quality={100}*/}
-        //     {/*                className=' cursor-pointer transition-all duration-700	 hover:scale-110'*/}
+        //     {/*                className='transition-all duration-700 cursor-pointer hover:scale-110'*/}
         //     {/*            />*/}
         //     {/*        </div>*/}
         //     {/*    </ParallaxLayer>*/}
@@ -212,19 +243,22 @@ function ContentParallax() {
                         {/*    <CustomImage id={image} key={image} ref={ref}/>*/}
                         {/*))}*/}
                         <div className='flex flex-col w-full gap-16 xl:gap-32'>
-                            {[1,2,3,4,5].map(el => (
-                                <Fragment key={el}>
+                            {workList.map((el, key) => (
+                                <Fragment key={key}>
                                     <div className='min-h-[500px] min-w-full relative overflow-hidden'>
-                                        <Image
-                                            src={"/content-images/image-1.png"}
-                                            alt={'content image'}
-                                            fill
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            objectFit='contain'
-                                            quality={100}
-                                            className={`transition-all duration-700 hover:scale-110 !w-fit !left-1/2 -translate-x-1/2`}
-                                            onMouseMove={(e)=>onMouseMove(e)} onMouseEnter={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)}
-                                        />
+                                    <h4 className='content-parallax-image-heading'>{el.name}</h4>
+                                        <Link href={el.url} target="_blank">
+                                            <Image
+                                                src={`/content-images/${el.src}`}
+                                                alt={'content image'}
+                                                fill
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                objectFit='cover'
+                                                quality={100}
+                                                className={`transition-all duration-700 hover:scale-110 !w-fit !left-1/2 -translate-x-1/2`}
+                                                onMouseMove={(e)=>onMouseMove(e)} onMouseEnter={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)}
+                                            />
+                                        </Link>
                                     </div>
                                 </Fragment>
                             ))}

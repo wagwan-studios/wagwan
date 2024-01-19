@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prod": "node app.js"
   },
   "dependencies": {
     "@react-spring/parallax": "^9.7.3",
