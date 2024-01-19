@@ -136,7 +136,7 @@ function ContentParallax() {
         },
         {
             name: "Fur You",
-            src: 'portfolio-5.jpg',
+            src: 'portfolio-3.jpg',
             url: 'https://furyou.com/',
             caption: 'Our entire line is created with the cleanest facial-grade, vegan, cruelty free, non-toxic ingredients that are dermatologically and gynecologically tested.'
         },
@@ -148,7 +148,7 @@ function ContentParallax() {
         },
         {
             name: "Fabric",
-            src: 'portfolio-3.jpg',
+            src: 'portfolio-5.jpg',
             url: 'https://fabric.vc/',
             caption: 'We believe in the power of individual contribution: the fire at the heart of Web3.'
         }
